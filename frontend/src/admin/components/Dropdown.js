@@ -36,7 +36,7 @@ function Dropdown({ history }) {
   const logoutuser = async (id) => {
     if (id === "admin-logout") {
 
-        userlogout().then(()=>{history.replace("/")}).error(()=>{alert("something went wrong")})
+        userlogout().then((e)=>{ console.log(e); history.replace("/bleeblue"); window.location.reload(false); });
      
     }
   };

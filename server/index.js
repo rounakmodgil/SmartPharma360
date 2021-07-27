@@ -67,7 +67,7 @@ const { getcurrUser, setCurrUser } = require("./currUser");
   apolloServer.applyMiddleware({ app, cors: false });
 
   await mongoose
-    .connect("mongodb://localhost/onpoint")
+    .connect("mongodb://localhost/smartpharma")
     .then(() => console.log("Connected to MongoDB..."))
     .catch((err) => console.error("Could not connect to mongodb", err));
 

@@ -97,6 +97,7 @@ const resolvers = {
       return { accessToken: createAccessToken(admin), userId: admin.id };
     },
     logout: async (_, {}, { res }) => {
+      setCurrUser(null);
       sendRefreshToken(res, " ");
       return true;
     },

@@ -11,10 +11,11 @@ import { login, me } from "../graphql/websitegql";
 import cover from "./images/cover2.png";
 export default function Login({ history }) {
   const [userlogin] = useMutation(login);
-  const { data: userid, error: userid_error } = useQuery(me);
+  const { data: userid, error: userid_error } = useQuery(me, {fetchPolicy:"network-only"});
 
   useEffect(() => {
-    if (userid) {
+    if (userid  ) {
+      console.log(userid)
       history.replace("/adminemployees");
     }
   }, [userid, userid_error]);
@@ -45,7 +46,7 @@ export default function Login({ history }) {
 
   return (
     <>
-      {userid_error && (
+      
         <>
           <AcademyNavbar />
           <div className="contact-section" id="contact">
@@ -99,7 +100,7 @@ export default function Login({ history }) {
           </div>
           <Smallfooter />
         </>
-      )}
+ 
     </>
   );
 }
